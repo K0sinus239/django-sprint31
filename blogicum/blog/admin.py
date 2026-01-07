@@ -1,4 +1,7 @@
 from django.contrib import admin
+
+from django.contrib.auth.models import Group
+
 from .models import Category, Location, Post
 
 
@@ -36,3 +39,6 @@ class PostAdmin(admin.ModelAdmin):
         'created_at')
     date_hierarchy = 'pub_date'
     raw_id_fields = ('author',)
+
+
+admin.site.unregister(Group)
