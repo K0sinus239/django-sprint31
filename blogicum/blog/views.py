@@ -6,6 +6,7 @@ from .models import Post, Category
 
 from .constants import POSTS_IN_PAGE
 
+
 def get_published_posts():
     """Возвращает QuerySet опубликованных постов."""
     return Post.objects.filter(
