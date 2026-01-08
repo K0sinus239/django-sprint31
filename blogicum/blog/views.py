@@ -24,11 +24,8 @@ def index(request):
 
 def post_detail(request, post_id):
     post = get_object_or_404(
-        Post,
-        id=post_id,
-        is_published=True,
-        pub_date__lte=timezone.now(),
-        category__is_published=True
+        get_published_posts(),
+        id=post_id
     )
     context = {'post': post}
     return render(request, 'blog/detail.html', context)
